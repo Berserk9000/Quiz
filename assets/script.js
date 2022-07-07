@@ -18,57 +18,54 @@ var highscoreDisplayName = document.getElementById("highscore-initials");
 var endGameBtns = document.getElementById("endGameBtns");
 var submitScoreBtn = document.getElementById("submitScore");
 var highscoreDisplayScore = document.getElementById("highscore-score");
+var finalQuestionIndex = quizQuestions.length;
+var currentQuestionIndex = 0;
+var timeLeft = 100;
+var timerInterval;
+var score = 0;
+var correct;
+var penalty = 10
+
+
+
+
+
 
 //Questions
 var quizQuestions = [{
     question: "What is the most important thing in coding?",
-    choiceA: "Syntax",
+    choiceA: "Google",
     choiceB: "Data Structures",
-    choiceC: "Google",
+    choiceC: "Syntax",
     choiceD: "Github",
-    correctAnswer: "c"},
+    correctAnswer: "a"},
   {
     question: "Commonly used data typed DO NOT include:",
-    choiceA: "Strings",
-    choiceB: "Display Object Management",
-    choiceC: "Digital Ordinance Model",
-    choiceD: "Desktop Oriented Mode",
-    correctAnswer: "a"},
+    choiceA: "strings",
+    choiceB: "boolseans",
+    choiceC: "alerts",
+    choiceD: "numbers",
+    correctAnswer: "c"},
    {
-    question: "What is used primarily to add styling to a web page?",
-    choiceA: "HTML",
-    choiceB: "CSS",
-    choiceC: "Python",
-    choiceD: "React.js",
-    correctAnswer: "b"},
-    {
-    question: "What HTML tags are JavaScript code wrapped in?",
-    choiceA: "&lt;div&gt;",
-    choiceB: "&lt;link&gt;",
-    choiceC: "&lt;head&gt;",
-    choiceD: "&lt;script&gt;",
+    question: "Arrays in Javascript can be used to store _____.?",
+    choiceA: "numbers",
+    choiceB: "strings",
+    choiceC: "booleans",
+    choiceD: "all of the above",
     correctAnswer: "d"},
     {
-    question: "When is localStorage data cleared?",
-    choiceA: "No expiration time",
-    choiceB: "On page reload",
-    choiceC: "On browser close",
-    choiceD: "On computer restart",
-    correctAnswer: "a"},  
-    {
-    question: "What does WWW stand for?",
-    choiceA: "Web World Workings",
-    choiceB: "Weak Winter Wind",
-    choiceC: "World Wide Web",
-    choiceD: "Wendy Wants Waffles",
+    question: "String values must be enclosed withing ___ when being assigned to variables.?",
+    choiceA: "commas",
+    choiceB: "curly brackets",
+    choiceC: "quotes",
+    choiceD: "parenthesis",
     correctAnswer: "c"},
     {
-    question: "What HTML attribute references an external JavaScript file?",
-    choiceA: "href",
-    choiceB: "src",
-    choiceC: "class",
-    choiceD: "index",
-    correctAnswer: "b"},
-        
+    question: "A very useful tool for used during development and debugging for printing content to the debugger is:",
+    choiceA: "Java",
+    choiceB: "terminal/bash",
+    choiceC: "for loops",
+    choiceD: "console log",
+    correctAnswer: "d"},  
     
     ];
