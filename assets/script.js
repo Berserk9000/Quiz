@@ -31,12 +31,12 @@ var quizQuestions = [{
   {
     question: "Commonly used data typed DO NOT include:",
     choiceA: "strings",
-    choiceB: "boolseans",
+    choiceB: "booleans",
     choiceC: "alerts",
     choiceD: "numbers",
     correctAnswer: "c"},
    {
-    question: "Arrays in Javascript can be used to store _____.?",
+    question: "Arrays in Javascript can be used to store _____?",
     choiceA: "numbers",
     choiceB: "strings",
     choiceC: "booleans",
@@ -60,7 +60,7 @@ var quizQuestions = [{
 //Othe variables needed
 var finalQuestionIndex = quizQuestions.length;
 var currentQuestionIndex = 0;
-var timeLeft = 100;
+var timeLeft = 50;
 var timerInterval;
 var score = 0;
 var correct;
@@ -172,7 +172,7 @@ function replayQuiz(){
     highscoreContainer.style.display = "none";
     gameoverDiv.style.display = "none";
     startQuizDiv.style.display = "flex";
-    timeLeft = 100;
+    timeLeft = 50;
     score = 0;
     currentQuestionIndex = 0;
 }
@@ -197,6 +197,4 @@ function checkAnswer(answer){
         showScore();
     }
 }
-
-// Quiz start 
 startQuizButton.addEventListener("click",startQuiz);
