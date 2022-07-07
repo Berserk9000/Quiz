@@ -69,3 +69,35 @@ var quizQuestions = [{
     correctAnswer: "d"},  
     
     ];
+
+//Generator
+    function generateQuizQuestion(){
+        gameoverDiv.style.display = "none";
+        if (currentQuestionIndex === finalQuestionIndex){
+            return showScore();
+        } 
+        var currentQuestion = quizQuestions[currentQuestionIndex];
+        questionsEl.innerHTML = "<p>" + currentQuestion.question + "</p>";
+        buttonA.innerHTML = currentQuestion.choiceA;
+        buttonB.innerHTML = currentQuestion.choiceB;
+        buttonC.innerHTML = currentQuestion.choiceC;
+        buttonD.innerHTML = currentQuestion.choiceD;
+    };
+
+// Starting quix
+function startQuiz(){
+    gameoverDiv.style.display = "none";
+    startQuizDiv.style.display = "none";
+    generateQuizQuestion();
+
+    //Timer
+    timerInterval = setInterval(function() {
+        timeLeft--;
+        quizTimer.textContent = "Time left: " + timeLeft;
+    
+        if(timeLeft === 0) {
+          clearInterval(timerInterval);
+          showScore();
+        }
+      }, 1000);
+    }
