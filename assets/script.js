@@ -101,3 +101,29 @@ function startQuiz(){
         }
       }, 1000);
     }
+//showing score?
+    function showScore(){
+        clearInterval(timerInterval);
+        highscoreInputName.value = "";
+        finalScoreEl.innerHTML = "You got " + score + " out of " + quizQuestions.length + " correct!";
+    }
+    submitScoreBtn.addEventListener("click", function highscore(){
+    
+    
+        if(highscoreInputName.value === "") {
+            alert("please add initials");
+            return false;
+        }else{
+            var savedHighscores = JSON.parse(localStrage.getItem("savedHighscores")) || [];
+            var currentUser = highscoreInputName.value.trim();
+            var currentHighscore = {
+                name : currentUser,
+                score : score
+            };
+            savedHighscores.push(currentHighscore);
+            localStorage.setItem("savedHighscores", JSON.stringify(savedHighscores));
+            generateHighscores()
+    
+        }
+        
+    });
